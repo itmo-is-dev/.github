@@ -359,7 +359,7 @@ return student;
 while (true)
 {
    // что угодно тут будет плохо :)
-   // особенно, если не будет brake;
+   // особенно, если не будет break;
 }
 
 // ЛУЧШЕ
@@ -521,7 +521,22 @@ public IReadOnlyCollection<string> Values
 6. При написании цепочки вызовов методов, переносите каждый вызов на отдельную строку.
 7. Для проверки на null использовать конструкции `is null` и `is not null`.
 8. Используйте Type.Parse вместо Convert.ToType (например, int.Parse вместо Convert.ToInt32).
-9. Названия namespaces должны содержать только название проекта, не включать в себя папки. Чтобы не было конфликтов с анализаторами и Resharper, в `ProjectName.csproj.DotSettings` можно прописать опции NamespaceProvider = false. Сделать это можно в VS в свойствах папки.
+9. Название namespace должно содержать название проекта и все папки через точку, ведущие от корня проекта к текущему файлу.
+    
+    Пример структуры проекта: 
+    ```
+    Project
+        Users
+            Models
+            Entities
+                Student.cs
+            Services
+        Orders
+            Models
+            Entities
+            Services
+    ```
+    При такой структуре проекта название namespace в файле Student.cs будет Project.Users.Entities
 
 # Restrict
 
